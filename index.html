@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--Czcionki-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+      </style>
+    <title>Gluten Appetit</title>
+</head>
+
+<body>
+    <header>
+      <!-- Menu nawigujące (wyskakuje po scrollu) -->
+        <nav id="navmenu">
+            <img src="/obrazy/LogoGluten.png" alt="Gluten Appetit Logo" id="navlogo" onclick="powrotdogory()">
+            <span id="przycisk-menu" onclick="pokazmenu()">☰</span>
+            <section id="header-links">
+              <a href="#menu">Menu</a>
+              <a href="#galeria">Galeria</a>
+              <a href="#reservation">Rezerwacja</a>
+              <a href="#footer">Kontakt</a>
+          </section>
+        </nav>
+        
+        <!-- Baner z przejściami strony -->
+        <div id="header-banner" class="header-banner">
+            <span id="przycisk-menu" onclick="pokazmenu()">☰</span>
+            <section id="header-links">
+                <a href="#menu">Menu</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#reservation">Rezerwacja</a>
+                <a href="#footer">Kontakt</a>
+            </section>
+            <img src="obrazy/LogoGluten.png" alt="Gluten Appetit Logo" id="logo">
+        </div>
+    </header>
+    
+    <!-- Menu (wyskakuje po kliknięciu które jest tylko na urządzeniach mobilnych zamiast navmenu) -->
+    <div id="hamburgermenu" class="menu-hidden">
+        <span id="close-menu-x" onclick="pokazmenu()">X</span>
+        <ul>
+            <li><a href="#menu" onclick="pokazmenu()">Menu</a></li>
+            <li><a href="#disclaimer" onclick="pokazmenu()">Rezerwacja</a></li>
+            <li><a href="#footer" onclick="pokazmenu()">Kontakt</a></li>
+        </ul>
+    </div>
+    
+    <!-- Opisy -->
+    <div class="Kontener-opisów">
+        <div class="Tresc-Sekcja image-left">
+            <img src="/obrazy/Opis1.png" alt="Opis 1">
+            <div class="Opis">
+                <h2 class="Tresc-Tytul">Mąka, Pasja i Tradycja</h2>
+                <p class="Tresc-Podtytul">Nasza kuchnia</p>
+                <p>Gluten Appetit powstał z pasji do tradycji oraz potrzeby przypomnienia jak wspaniała jest Polska kuchnia w której króluje mąka. Skupiamy się na daniach mącznych, przygotowanych z najlepszych mąk z dolnośląskiego młyna. Proponujemy potrawy w klasycznych odsłonach oraz nasze własne smaki. Wspomnienia z dzieciństwa, radość z odkrywania nowego - staramy się aby każde danie wywoływało uśmiech na twarzach naszych gości.</p>
+                <a href="#menu" class="Menu-Przycisk">Zobacz menu</a>
+            </div>
+        </div>
+
+        <div class="Tresc-Sekcja image-right">
+            <img src="/obrazy/opis2.png" alt="Opis 2">
+            <div class="Opis" id="opis2">
+                <h2 class="Tresc-Tytul">Gluten Appetit!</h2>
+                <p class="Tresc-Podtytul">Pierogi, pyzy oraz inne pyszności.</p>
+                <h3>Pierogi</h3>
+                <p>klasyczne, znane z domów naszych babć, jak i nasze własne propozycje</p>
+                <h3>Pyzy</h3>
+                <p>delikatne ciasto z nadzieniem, klasycznym - mięsnym, jak również odważnym, z koziego sera i żurawiny</p>
+                <h3>I nie tylko</h3>
+                <p>Pyszne zupy, wspaniałe gnocchi,czy też makarony. Do tego domowy kompot lub kefir.
+                    Jednym słowem - Radość!</p>
+                <a href="#menu" class="Menu-Przycisk">Zobacz menu</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Drugi Baner-->
+    <div class="SecondBaner" id="galeria">
+        <div class="Banner-content">
+            <h1>Powrót do wspomnień</h1>
+            <p>Gluten Appetit to również wspaniała atmosfera, sprzyjająca wspomnieniom pięknych chwil.</p>
+            <p>Przekonaj się, jak smakuje radość!</p>
+            <a href="#galeria-header">Zobacz nasze wnętrze</a>
+        </div>
+    </div>
+
+    
+    <!--Menu z potrawami-->
+
+    <section class="menu" id="menu">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nasze Pierogi</th>
+                    <th class="price">Cena (cała porcja / pół porcji)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pierogi ruskie z cebulką lub śmietaną<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">20,00 zł / 11,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pierogi z kaszą gryczaną, wędzonym twarogiem i cebulką<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">25,00 zł / 13,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pierogi z mięsem i cebulką</td>
+                    <td class="price">27,00 zł / 14,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pierogi szpinakowe z fetą i sosem z gorgonzoli<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">28,00 zł / 15,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pierogi z daktylami, ricottą i śmietaną<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">26,00 zł / 14,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pierogi z serem, cukrem waniliowym, sosem truskawkowym i śmietaną<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">24,00 zł / 13,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pyzy -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Pyzy</th>
+                    <th class="price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pyzy mięsne z cebulką</td>
+                    <td class="price">28,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Pyzy z kozim serem, żurawiną, granolą z orzecha włoskiego i miodem<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">38,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Kopytka -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Kopytka</th>
+                    <th class="price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kopytka z masłem<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">16,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Kopytka ze śmietaną i cukrem<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">16,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Kopytka z sosem z suszonych pomidorów, parmezanem, warzywami i natką pietruszki<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">26,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Kopytka z sosem z wołowiny, parmezanem i natką pietruszki</td>
+                    <td class="price">27,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Kopytka z sosem śmietanowo-grzybowym, parmezanem i natką pietruszki<img src="/obrazy/vegeicon.png" alt="danie vege" class="vegeicon"></td>
+                    <td class="price">25,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Zupy -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Zupy</th>
+                    <th class="price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zupa dnia (od poniedziałku do soboty)</td>
+                    <td class="price">12,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Niedzielny rosół drobiowy z lanymi kluseczkami</td>
+                    <td class="price">15,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Napoje -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Rodzaj Napojów</th>
+                    <th class="price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Woda gazowana/niegazowana</td>
+                    <td class="price">5,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Espresso</td>
+                    <td class="price">8,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Coca-Cola/Coca-Cola Zero</td>
+                    <td class="price">7,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Americano</td>
+                    <td class="price">9,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Dodatki -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Dodatki</th>
+                    <th class="price">Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Śmietana</td>
+                    <td class="price">2,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Opakowanie na wynos</td>
+                    <td class="price">1,00 zł</td>
+                </tr>
+                <tr>
+                    <td>Cebulka</td>
+                    <td class="price">2,00 zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="disclaimer" id="disclaimer">
+            <p><strong>Uwaga:</strong> Całe menu zawiera gluten, nie posiadamy dań bezglutenowych.</p>
+        </div>
+    </section>
+
+    <!--Galeria-->
+
+    <div class="gallery-header" id="galeria-header">
+        <h3>ODKRYJ</h3>
+        <h2>GLUTENOWE WNĘTRZE</h2>
+        <p>W Glutenie wiemy, że pyszne jedzenie powinno mieć wspaniałą oprawę. 
+        Dlatego zadbaliśmy o to, aby wnętrze naszego bistro było ucztą dla Twoich oczu.</p>
+    </div>
+    <div class="gallery">
+        <img src="/galeria/zdjecie1.jpg" alt="Zdjęcie 1" data-src="/galeria/zdjecie1.jpg">
+        <img src="/galeria/zdjecie2.jpg" alt="Zdjęcie 2" data-src="/galeria/zdjecie2.jpg">
+        <img src="/galeria/zdjecie3.jpg" alt="Zdjęcie 3" data-src="/galeria/zdjecie3.jpg">
+        <img src="/galeria/zdjecie4.jpg" alt="Zdjęcie 4" data-src="/galeria/zdjecie4.jpg">
+        <img src="/galeria/zdjecie5.jpg" alt="Zdjęcie 1" data-src="/galeria/zdjecie5.jpg">
+        <img src="/galeria/zdjecie6.jpg" alt="Zdjęcie 2" data-src="/galeria/zdjecie6.jpg">
+        <img src="/galeria/zdjecie7.jpg" alt="Zdjęcie 3" data-src="/galeria/zdjecie7.jpg">
+        <img src="/galeria/zdjecie8.jpg" alt="Zdjęcie 4" data-src="/galeria/zdjecie8.jpg">
+        <img src="/galeria/zdjecie9.jpg" alt="Zdjęcie 4" data-src="/galeria/zdjecie9.jpg">
+    </div>
+    
+    <!-- Modal (początkowo ukryty) -->
+    <div id="modal" class="modal">
+        <span id="close-modal" class="close">&times;</span>
+        <img id="modal-img" src="" alt="Powiększone zdjęcie">
+    </div>
+
+    <!--Rezerwacja, Formularz-->
+
+    <section class="reservation-form" id="reservation">
+        <h2>Rezerwacja</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <input type="text" id="name" name="name" required placeholder="Imię i nazwisko">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" required placeholder="Twój adres e-mail">
+            </div>
+            <div class="form-group">
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <select id="guests" name="guests" required>
+                    <option value="1">1 osoba</option>
+                    <option value="2">2 osoby</option>
+                    <option value="3">3 osoby</option>
+                    <option value="4">4 osoby</option>
+                    <option value="5">5 osób</option>
+                    <option value="6">6 osób</option>
+                    <option value="7">7 osób</option>
+                    <option value="8">8 osób</option>
+                    <option value="9">9 osób</option>
+                    <option value="10">10 osób</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" required placeholder="Twój numer telefonu">
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" rows="4" placeholder="Dodaj wiadomość..."></textarea>
+              </div>
+              <button type="submit" id='form-group-button'>Zarezerwuj stolik</button>
+        </form>
+    </section>
+
+    <!--Adres, Telefon, Linki oraz Autor-->
+
+    <div class="footer">
+        <div class="contact" id="footer">
+            <div class="contact-item">
+                <h1>Adres</h1>
+                <p>Wrocław, ul. Szczytnicka 54/1B</p>
+                <p>(Róg Szczytnickiej i Ładnej)</p>
+            </div>
+            
+            <div class="contact-item">
+                <h1>Telefon</h1>
+                <p>Tel. +48 663 776 016</p>
+            </div>
+            
+            <div class="contact-item">
+                <h1>Nasze Social Media</h1>
+                <a href="https://facebook.com" target="_blank" class="social-link"><img src="/obrazy/facebook.png" alt="Facebook"> Facebook</a>
+                <a href="https://instagram.com/gluten_appetit?igsh=ZmdkaXNzNnN6dnlz" target="_blank" class="social-link">
+                    <img src="/obrazy/Instagram.png" alt="Instagram"> Instagram
+                </a>
+            </div>
+        </div>
+    
+        <div class="author-signature">
+            <p>© 2025 Paweł Joksz & Mateusz Porębiak. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+      <img src="/obrazy/strzałka-up.png" alt="" onclick="powrotdogory()" id="przycisk-gora">
+    <script src="script.js"></script> <!--Odniesienie do skryptu-->
+</body>
+
+</html>
+

@@ -1,0 +1,976 @@
+
+@media (max-width: 768px) {
+    /* Dostosowanie układu galerii */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na tabletach */
+    }
+
+    /* Dostosowanie sekcji */
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Dostosowanie paddingu i marginesów */
+    .text-left, .text-right {
+        padding: 10px;
+    }
+
+    .image-left, .image-right {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Dostosowanie układu galerii na telefonach */
+    .gallery {
+        grid-template-columns: 1fr; /* 1 kolumna na telefonach */
+    }
+}
+
+@keyframes borderOpacityChange {
+    0% {
+        border-color: rgba(255, 0, 0, 0);
+    }
+    50% {
+        border-color: rgb(255, 255, 255);
+    }
+    100% {
+        border-color: rgba(255, 0, 0, 0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Oswald';
+    overflow-x: hidden;
+}
+
+body {
+    font-size: larger;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+
+/*Główny Baner*/
+.header-banner {
+    width: 100vw;
+    background-image: url('/obrazy/Baner.jpg');
+    color: white;
+    text-align: center;
+    padding: 400px 0px 400px 0px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.header-banner.small {
+    padding: 10px;
+    font-size: 14px;
+}
+
+#logo{
+  width: 574px;
+  height:168px;
+}
+
+/* Zakładki pozycja */
+#header-links {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    z-index: 10;
+    text-align: right;
+}
+
+/*Wygląd zakładek*/
+#header-links a {
+    font-weight: 200;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left:15px;
+    font-size: 20px;
+    padding: 10px 15px;
+   
+}
+
+#header-links a:hover{
+    animation: borderOpacityChange 1.5s infinite;
+    border: solid 1px white;
+}
+
+/*Drugi Baner - Galeria*/
+.SecondBaner {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: url('/obrazy/Baner2.jpg') center/cover fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.Banner-content {
+    padding: 20px;
+}
+
+.SecondBaner h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.SecondBaner p {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.SecondBaner a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.SecondBaner a:hover {
+    background: black;
+    color: white;
+}
+
+/* Pozycja, rozmiar logo w menu nawigującym*/
+#navlogo {
+    height: 58.53px;
+    width: 200px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  /* Menu nawigujące (pojawia się po poscrollowaniu) */
+  #navmenu {
+      z-index: 9999;
+      background-color: #6a8254;
+      opacity: 0;
+      transform: translateY(-200px);
+      position: fixed;
+      height: 80px;
+      width: 100%;
+      font-size: larger;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+  }
+  
+  /* Klasa pokazująca menu nawigacyjne */
+  #navmenu.show {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+  
+  #przycisk-menu {
+      position: absolute;
+      right: 300px;
+      color: rgb(235, 243, 158);
+      font-size: xx-large;
+      transition: all 0.3s ease;
+      display: none;
+  }
+  
+  #przycisk-menu:hover {
+      color: #4e722d;
+      text-shadow: 0px 0px 15px rgb(235, 243, 158);
+      cursor: pointer;
+  }
+  
+  #hamburgermenu {
+      display: none;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      padding-top: 50px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeIn 0.5s forwards;
+  }
+  
+  #hamburgermenu ul {
+      list-style-type: none;
+      margin-bottom: 150px;
+      text-align: center;
+      border: solid 10px rgb(235, 243, 158);
+      width: 300px;
+      padding: 0;
+  }
+  
+  #hamburgermenu li {
+      padding: 20px;
+  }
+  
+  /* hamburger menu tekst */
+  #hamburgermenu ul li a {
+      color: black;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 24px;
+      transition: all 0.3s ease;
+  }
+
+  /* hamburger menu tekst hover */
+  #hamburgermenu ul li a:hover {
+      color: #6a8254;
+      font-size: 32px;
+  }
+  
+  #close-menu-x {
+      font-size: 40px;
+      color: black;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+  }
+
+/*Opisy i 2 zdjecia*/
+.Kontener-opisów {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 80%;
+}
+
+.Tresc-Sekcja{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.Tresc-Sekcja img {
+    width: 35%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.Opis {
+    width: 55%;
+    text-align: justify;
+    padding: 20px;
+}
+
+.image-left {
+    flex-direction: row;
+}
+
+.image-right {
+    flex-direction: row-reverse;
+}
+
+.Tresc-Tytul {
+    font-size: 35px;
+    font-weight: bold;
+    color: #6a8254;
+    margin-bottom: 10px;
+}
+
+.Tresc-Podtytul {
+    
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.Menu-Przycisk {
+    font-size: 25px;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #6a825400;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border:solid 1.5px rgb(138, 174, 104);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.Menu-Przycisk:hover {
+    background-color:#6a8254;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.description-button:hover {
+    background-color: #4e722d;
+}
+
+#opis2 .Menu-Przycisk {
+  float: right;
+}
+
+/*Menu z potrawami*/
+.menu {
+    width: 50%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.menu td{
+  font-size: 19px;
+}
+.menu-vege-icon {
+    display: flex;
+    align-items: center;
+}
+
+.vegeicon {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+}
+
+table {
+    
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    
+}
+
+th {
+    background-color: #6a8254;
+    color: white;
+}
+
+td {
+    font-size: 14px;
+}
+
+.price {
+    text-align: right;
+}
+
+.section, .image-right, .image-left {
+    padding-top: 20px;
+}
+
+.section-title {
+    background-color: #6a8254;
+    color: white;
+    padding: 10px;
+    font-size: 1.5em;
+    margin-top: 40px;
+}
+
+.menu-item {
+    margin: 10px 0;
+}
+
+.menu-item span {
+    font-weight: bold;
+}
+
+.contact {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.menu-table, .menu-table th, .menu-table td {
+    border: 1px solid #ccc;
+}
+
+.menu-table th, .menu-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+/*Informacja o braku glutenu*/
+.disclaimer {
+    font-size: 20px;
+    font-style: italic;
+    color: #636363;
+    margin-top: 10px;
+}
+
+/*Galeria Header*/
+.gallery-header {
+    text-align: center;
+    margin: 80px 0;
+    color: #000000;
+}
+
+.gallery-header h3 {
+    font-size: 20x;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.gallery-header h2 {
+    font-size: 45px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.gallery-header p {
+    font-size: 25spx;
+    color: #6a6a6a;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.5;
+}
+
+/*Galeria Zdjęcia*/
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*Modal*/
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    margin: auto;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Formularz Rezerwacji */
+.reservation-form {
+    background-color: #fff;
+    padding: 40px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    width: 50%;
+    border-radius: 12px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+/* Efekt hover formularza */
+.reservation-form:hover {
+    transform: translateY(-5px);  
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);  
+}
+
+/* Nagłówek formularza */
+.reservation-form h2 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Grupa formularza */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Input, select, textarea */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Fokowanie na inputach, selectach i textarea */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #a7c8f2;  
+    background-color: #fff;
+    outline: none;
+}
+
+/* Wysokość tekstu w textarea */
+.form-group textarea {
+    height: 150px; 
+    resize: vertical; 
+}
+
+/* Przycisk formularza */
+#form-group-button {
+    background-color: #8f8f8f; 
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#form-group-button:hover {
+    background-color: #373737;
+    transform: translateY(-2px); 
+}
+
+#form-group-button:active {
+    background-color: #373737;  
+    transform: translateY(1px);  
+}
+
+/*Footer*/
+.footer {
+    font-family: 'Oswald', sans-serif;
+    background-color: #6a8254;
+    color: white;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 22px; /* Zwiększenie rozmiaru nagłówków */
+    margin-bottom: 8px; /* Zwiększenie odstępu między nagłówkiem a tekstem */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer p {
+    font-size: 16px; /* Zwiększenie rozmiaru tekstu */
+    margin-bottom: 1px; /* Większy odstęp pomiędzy liniami */
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Zwiększenie odległości między elementami */
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 30%;
+}
+
+.contact-item a {
+    font-size: 16px; /* Zwiększenie czcionki w linkach social media */
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 0; /* Zwiększenie odstępu między linkami */
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ecf0f1;
+}
+
+.contact-item img {
+    width: 24px; /* Zwiększenie rozmiaru ikon */
+    height: 24px;
+    margin-right: 8px; /* Większy odstęp między ikoną a tekstem */
+}
+
+.author-signature {
+    font-size: 14px; /* Zwiększenie czcionki podpisu */
+    color: #b3b3b3;
+    margin-top: 15px;
+}
+
+.author-signature p {
+    margin: 0;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .contact-item {
+        flex-basis: 100%;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
+    .footer h1 {
+        font-size: 20px;
+    }
+
+    .contact-item a {
+        font-size: 14px;
+    }
+
+    .author-signature p {
+        font-size: 12px;
+    }
+}
+
+/*Autorzy*/
+.author-signature p{
+    font-family: cursive;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/*Pozycja Ikon Instagrama i Faceeboka*/
+.instagram-icon img, .facebook-icon img {
+    vertical-align: middle;
+}
+
+/*Wielkość Instagrama*/
+.instagram-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/*Wielkość Facebook'a*/
+.facebook-icon img {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+}
+
+/*Formularz Kontaktowy Button*/
+.custom-button {
+    background-color: #a3a3a3; /* Zielony kolor */
+    border: none;
+    color: white;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #afafaf; /* Jaśniejszy zielony po najechaniu */
+}
+
+#przycisk-gora{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 9999;
+    right: 200px;
+    bottom: 100px;
+    opacity: 0;
+    transform: translateY(-5000px);
+    cursor: pointer;
+    animation: borderOpacityChange 5s infinite;
+    border: solid 1px white;
+}
+
+#przycisk-gora.show{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 1200px) {
+
+    /* Main Banner */
+    .header-banner {
+        padding: 100px 0px; /* Mniejsze paddingi na urządzeniach mobilnych */
+        font-size: 18px;
+    }
+
+    /* Menu nawigacyjne */
+    #navmenu {
+        font-size: 16px;
+    }
+
+    /* Wygląd menu */
+    #header-links a {
+        display: none;
+    }
+
+    /* Przycisk menu na urządzeniach mobilnych */
+    #przycisk-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    /* Zmniejszenie widoczności przycisku menu */
+    #hamburgermenu {
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Zmiana wyglądu galerii */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Kontener opisów */
+    .Kontener-opisów {
+        max-width: 95%;
+    }
+
+    /* Menu z potrawami */
+    .menu {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    /* Formularz rezerwacji */
+    .reservation-form {
+        width: 90%;
+    }
+
+    /* Zmiana układu sekcji */
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Zmniejszenie tekstów */
+    .section-title, .gallery-header h2, .gallery-header p {
+        font-size: 18px;
+    }
+
+    /* Zmiana rozmiaru przycisków w menu */
+    .Menu-Przycisk {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    /* Zmniejszenie ikon w stopce */
+    .contact-item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Zmiana w stopce */
+    .footer h1 {
+        font-size: 16px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    /* Zmiana stylów obrazków w galerii */
+    .gallery img {
+        height: 300px;
+    }
+
+    /* Zmniejszenie formularza kontaktowego */
+    .custom-button {
+        font-size: 12px;
+    }
+
+    /* Przyciski nawigacyjne */
+    #przycisk-gora {
+        right: 30px;
+        bottom: 50px;
+    }
+
+    /* Dostosowanie obrazów w kontenerze */
+    .Tresc-Sekcja img {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+
+    /* Zmiana wyglądu sekcji tekstu */
+    .Opis {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Zmniejszenie ikonek w stopce */
+    .instagram-icon img, .facebook-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Zmiana układu kontaktu w stopce */
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Opis w stopce */
+    .author-signature p {
+        font-size: 14px;
+    }
+}
+
+/* Media Query for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Main Banner */
+    .header-banner {
+        padding: 50px 0px; /* Jeszcze mniejsze paddingi na bardzo małych ekranach */
+        font-size: 14px;
+    }
+
+    /* Zmniejszenie tekstów w stopce */
+    .footer h1 {
+        font-size: 14px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+
+    /* Zmniejszenie przycisków w menu */
+    .Menu-Przycisk {
+        font-size: 16px;
+    }
+
+    /* Zmniejszenie przycisków w formularzu */
+    #form-group-button {
+        font-size: 18px;
+    }
+
+    /* Zmniejszenie sekcji opisu */
+    .Opis {
+        width: 100%;
+    }
+
+    /* Zmiana wyglądu formularza */
+    .reservation-form {
+        width: 100%;
+    }
+
+    /* Przyciski nawigacyjne */
+    #przycisk-gora {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Układ zdjęć w galerii */
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    /* Zmniejszenie obrazków */
+    .gallery img {
+        height: 250px;
+    }
+
+    /* Układ w stopce */
+    .contact {
+        gap: 20px;
+    }
+}
